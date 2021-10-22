@@ -3,7 +3,7 @@
 // include database 
 
 $servername = "localhost";
-$username = "developertest";
+$username = "developertes";
 $password = "HL@2021test";
 $dbname = "hla";
 
