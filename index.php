@@ -41,6 +41,8 @@ $sql = "SELECT * FROM locations ";
 $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
+    $location['id'] = $row["id"];
+    $location['user_id'] = $row["user_id"];
     $location['district'] = $row["district"];
     $location['state'] = $row["state"];
     $location['country'] = $row["country"];
