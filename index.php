@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 
 $servername = "localhost";
-$username = "developertest";
+$username = "developertes";
 $password = "HL@2021test";
 $dbname = "hla";
 
