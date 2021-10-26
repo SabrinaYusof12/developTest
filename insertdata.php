@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 $user = "INSERT INTO users (users_id,users_name,users_email,users_token,created)VALUES('00003','Nurul Farah Atiqah','nurulfarahatiqah34@gmail.com','b4a3a48795595af525772777b4b3b86e','26-10-2021 15:55')";
 
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$location = "INSERT INTO location(location_id,user_id,location_district,location_state,location_country)VALUES(00001,00003,'Pekan','Pahang','Malaysia')";
+$location = "INSERT INTO location(location_id,users_id,location_district,location_state,location_country)VALUES(00001,00003,'Pekan','Pahang','Malaysia')";
 
 
 
