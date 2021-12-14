@@ -67,7 +67,6 @@ if ($result->num_rows > 0) {
         $msg = "401 Unauthorized.";
         echo $msg;
         // array("message" => "401 Unauthorized.");
-   
 
 }
 
