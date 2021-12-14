@@ -34,7 +34,11 @@ if ($result->num_rows > 0) {
 
     $location_id = ($_GET['location_id']);
     //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-    $sql = "SELECT district, state, country FROM locations WHERE id ='$location_id'";
+    $sql = "SELECT tblloc.district, tblloc.state, tblloc.country 
+            FROM locations as tblloc
+            LEFT JOIN users as tbluser ON tblloc.user_id = tbluser.id
+            WHERE tblloc.id ='$location_id'";
+
 
     $data = $conn->query($sql);
 
