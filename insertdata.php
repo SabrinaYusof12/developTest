@@ -21,9 +21,9 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 $today = date("Y-m-d H:i:s");
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), token (datetime)
-$user = "INSERT INTO users (id, name, email, token, created) VALUES ('12', 'fyzatest', 'fyzamohd@ymail.com', '$token','$today');";
+$user = "INSERT INTO users (id, name, email, token, created) VALUES ('9', 'fyzatest', 'fyzamohd@ymail.com', '$token','$today');";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$location = "INSERT INTO locations (id, user_id, district, state, country) VALUES ('12', '$token', 'pekan', 'pahang','malaysia');";
+$location = "INSERT INTO locations (id, user_id, district, state, country) VALUES ('9', '$token', 'pekan', 'pahang','malaysia');";
 
 
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
