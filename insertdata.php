@@ -16,10 +16,22 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$id = '6';
+$name = 'ainahasim';
+$email = 'nurainahasim@gmail.com';
+$token = md5("testuser");
+
+$district = 'bangi';
+$state = 'selangor';
+$country = 'malaysia';
+
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$user = 
+$user = "INSERT INTO users 
+          VALUE ('$id', '$name', '$email', '$token', now())";
+
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$location = 
+$location = "INSERT INTO locations 
+              VALUE ('$id', '$id', '$district', '$state', '$country')";
 
 
 
