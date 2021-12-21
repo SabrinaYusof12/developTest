@@ -26,6 +26,8 @@ $location =
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   $last_id = $conn->insert_id;
   //get location_id and token value
+  echo $location_id;
+  echo $token;
   echo "New record created successfully";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
