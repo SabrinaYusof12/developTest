@@ -17,7 +17,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 
+$headers = getallheaders();
 $token = NULL;
 foreach ($headers as $header => $value) {
 
@@ -27,16 +27,16 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
+$sql = "SELECT * FROM users"
 
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
 
-$location_id = 
+$location_id = $_GET['location_id'];
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = 
+$sql = "SELECT * FROM locations WHERE location_id = $location_id;"
 
 $data = $conn->query($sql);
 
