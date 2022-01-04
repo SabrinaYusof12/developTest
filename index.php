@@ -52,7 +52,7 @@ if($data->num_rows > 0){
     http_response_code(200);
   
     // show products data
-         echo ($location);
+         echo json_encode($location);
       }
   
 else {
