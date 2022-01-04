@@ -16,8 +16,11 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+
+$token = md5(microtime(true).mt_Rand());
+
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$user = "INSERT INTO users(id,name, email, token, created) VALUES (210,'norsyahira', 'nsmrsyahira@gmail.com', '899bcbe98b29c79199d08394ef2118f0',NOW()) ";
+$user = "INSERT INTO users(id,name, email, token, created) VALUES (210,'norsyahira', 'nsmrsyahira@gmail.com', $token, NOW()) ";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
 $location = "INSERT INTO locations (id,user_id,district,state,country) VALUES(1,2,'pekan','pahang','malaysia')"
 
