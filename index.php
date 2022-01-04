@@ -36,40 +36,42 @@ if ($result->num_rows > 0) {
 
 $location_id = $_GET['location_id'];
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = "SELECT * FROM locations WHERE location_id = $location_id;"
+$sql = "SELECT * FROM locations WHERE id = ".$location_id;
 
 $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
-     = $row["district"];
-     = $row["state"];
-     = $row["country"];
+    $location['district'] = $row["district"];
+    $location['state'] = $row["state"];
+    $location['country'] = $row["country"];
   }
 
 
 if($data->num_rows > 0){ 
     // set response code - 200 OK
+    http_response_code(200);
   
     // show products data
-         ($location);
+         echo ($location);
       }
   
 else {
     // set response code - 404 Not found
+    http_response_code(404);
   
     // tell the user no location found
  
-        array("message" => "No location found.")
+       echo (array("message" => "No location found."));
   
 }
 
 } else {
     // set response code - 401 401 Unauthorized
+    http_response_code(401);
 
-  
     // no user found
  
-        array("message" => "401 Unauthorized.")
+        echo (array("message" => "401 Unauthorized."));
    
 
 }
