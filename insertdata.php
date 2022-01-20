@@ -43,5 +43,5 @@ if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
 }
 
 $conn->close();
-
+ 
 ?>
