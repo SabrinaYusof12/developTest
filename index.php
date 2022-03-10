@@ -32,16 +32,16 @@ $sql = "SELECT id FROM users where email='syina310@gmail.com'";
 $result = $conn->query($sql);
 
 foreach($result as $user){
-    $user_id = $data['id'];
+    $user_id = $user['id'];
 }
 
 if ($result->num_rows > 0) {
 
 
-//table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = "SELECT * FROM locations where user_id=".$user_id."";
+  //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
+  $sql = "SELECT * FROM locations where user_id=".$user_id."";
 
-$data = $conn->query($sql);
+  $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
 
