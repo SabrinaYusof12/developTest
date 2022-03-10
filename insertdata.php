@@ -33,7 +33,7 @@ if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   echo $token;
   echo "New record created successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error: " . $conn->connect_error . "<br>" . $conn->error;
 }
 
 $conn->close();

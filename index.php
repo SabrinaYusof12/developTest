@@ -2,7 +2,7 @@
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-  
+
 // include database and object files
 
 $servername = "localhost";
@@ -17,7 +17,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 'Authorization';
+$headers = ['Authorization' => MD5('AmierulMukminien123')];
 $token = NULL;
 foreach ($headers as $header => $value) {
 
@@ -44,13 +44,16 @@ $sql = "SELECT * FROM locations where user_id=".$user_id."";
 $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
-     $district = $row["district"];
-     $state = $row["state"];
-     $country = $row["country"];
+
+    $location = [
+     $district = $row["district"],
+     $state = $row["state"],
+     $country = $row["country"],
+    ];
   }
 }
 
-if($data->num_rows > 0){ 
+if($data->num_rows > 0){
     // set response code - 200 OK
     if (var_dump(http_response_code(200))) {
     // show products data
@@ -65,7 +68,7 @@ if($data->num_rows > 0){
     // no user found
         array("message" => "401 Unauthorized.");
     }
-   
+
 }
 
 $conn->close();
