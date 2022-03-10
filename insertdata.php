@@ -27,6 +27,8 @@ $location = "INSERT INTO `locations` (`id`,`user_id`,`district`,`state`,`country
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   $last_id = $conn->insert_id;
   //get location_id and token value
+  $location_id = 1;
+  $token = MD5('AmierulMukminien123');
   echo $location_id;
   echo $token;
   echo "New record created successfully";
