@@ -17,7 +17,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 
+$headers = 'Authorization';
 $token = NULL;
 foreach ($headers as $header => $value) {
 
@@ -27,51 +27,45 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
+$sql = "SELECT id FROM users where email='syina310@gmail.com'";
 
 $result = $conn->query($sql);
 
+foreach($result as $user){
+    $user_id = $data['id'];
+}
 
 if ($result->num_rows > 0) {
 
-$location_id = 
+
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = 
+$sql = "SELECT * FROM locations where user_id=".$user_id."";
 
 $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
-     = $row["district"];
-     = $row["state"];
-     = $row["country"];
+     $district = $row["district"];
+     $state = $row["state"];
+     $country = $row["country"];
   }
-
+}
 
 if($data->num_rows > 0){ 
     // set response code - 200 OK
-  
+    if (var_dump(http_response_code(200))) {
     // show products data
          ($location);
-      }
-  
-else {
-    // set response code - 404 Not found
-  
-    // tell the user no location found
- 
-        array("message" => "No location found.")
-  
-}
 
-} else {
+    } elseif (var_dump(http_response_code(404))) {
+
+        array("message" => "No location found.");
+
+    } elseif (var_dump(http_response_code(401))){
     // set response code - 401 401 Unauthorized
-
-  
     // no user found
- 
-        array("message" => "401 Unauthorized.")
+        array("message" => "401 Unauthorized.");
+    }
    
-
 }
 
 $conn->close();
