@@ -14,8 +14,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
+} else {
+  echo 'success';
 }
-
 // //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
 
 // $deleteuser = "DELETE FROM users where email='syina310@gmail.com'";
