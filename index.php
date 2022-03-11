@@ -17,58 +17,65 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = ['Authorization' => MD5('AmierulMukminien123')];
-$token = NULL;
-foreach ($headers as $header => $value) {
-
-    if($header == 'Authorization'){
-        $token = $value;
-    }
-}
-
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = "SELECT id FROM users where email='syina310@gmail.com'";
-
+$sql = "SELECT * FROM users where email='syina310@gmail.com'";
 $result = $conn->query($sql);
 
 foreach($result as $user){
-    $user_id = $user['id'];
+    $t = $user['token'];
+    $id = $user['id'];
 }
 
-if ($result->num_rows > 0) {
+$headers  = apache_request_headers();
+$token = NULL;
+if(array_key_exists('Authorization', $headers)){
+  header("HTTP/1.1 200 OK");
+
+  if($headers['Authorization'] == $t){
+
+    $authHeader = $headers['Authorization'];
+    if ($result->num_rows > 0) {
 
 
-  //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-  $sql = "SELECT * FROM locations where user_id=".$user_id."";
+      //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
+      $sql = "SELECT * FROM locations where user_id=$id";
 
-  $data = $conn->query($sql);
+      $data = $conn->query($sql);
 
-  while($row = $data->fetch_assoc()) {
+        while($row = $data->fetch_assoc()) {
 
-    $location = [
-     $district = $row["district"],
-     $state = $row["state"],
-     $country = $row["country"],
-    ];
-  }
-}
-
-if($data->num_rows > 0){
-    // set response code - 200 OK
-    if (var_dump(http_response_code(200))) {
-    // show products data
-         ($location);
-
-    } elseif (var_dump(http_response_code(404))) {
-
-        array("message" => "No location found.");
-
-    } elseif (var_dump(http_response_code(401))){
-    // set response code - 401 401 Unauthorized
-    // no user found
-        array("message" => "401 Unauthorized.");
+          $location = [
+          'district' => $row["district"],
+          'state' => $row["state"],
+          'country' => $row["country"],
+          ];
+        }
     }
 
+  } else {
+
+    header("HTTP/1.1 401 Unauthorized");
+  }
+
+} else {
+
+  header("HTTP/1.1 401 Unauthorized");
+
+}
+
+
+
+if (http_response_code() == 200){
+
+  print_r($location);
+
+ } elseif (http_response_code() == 404) {
+
+  print_r(array("message" => "No location found."));
+
+} elseif (http_response_code() == 401){
+
+  print_r(array("message" => "401 Unauthorized."));
 }
 
 $conn->close();

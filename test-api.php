@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'test.hla-integrated.com/<branch-name>?location_id=<location-id>',
+  CURLOPT_URL => 'test.hla-integrated.com/syafina?location_id=<location-id>',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
