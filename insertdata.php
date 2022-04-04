@@ -19,9 +19,14 @@ if ($conn->connect_error) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$user = 
+$token =md5('password');
+$created = date("Y-m-d H:i:s");
+
+$user = "INSERT INTO users (id, name, email, token, created)
+VALUES ('1', 'John', 'john@example.com', md5('John123'), $created)";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$location = 
+$location = INSERT INTO locations (location_id, user_id, district, state, country)
+VALUES ('1', '1', 'Pekan', 'Pahang', 'Malaysia')";
 
 
 
