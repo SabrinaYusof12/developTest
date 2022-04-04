@@ -18,9 +18,9 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-//table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
+//table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), developer_name (varchar 255)
 $user = 
-//table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
+//table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), developer_name (varchar 255)
 $location = 
 
 
