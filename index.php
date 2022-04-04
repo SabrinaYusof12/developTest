@@ -29,16 +29,16 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
+$sql = "SELECT id, name, email, token,datetime FROM user";
 
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
 
-$location_id = 
+$loc_id = $_GET['loc_id'];
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = 
+$sql = "SELECT id, name, email, token,datetime FROM location";
 
 $data = $conn->query($sql);
 
@@ -51,27 +51,26 @@ $data = $conn->query($sql);
 
 if($data->num_rows > 0){ 
     // set response code - 200 OK
-  
+  header("HTTP/1.0 200 OK");
     // show products data
-         ($location);
+     echo json_encode($location);
       }
   
 else {
     // set response code - 404 Not found
-  
+    $arr = array('message' => 'No location found.');
+    header("HTTP/1.0 404 Not Found");
     // tell the user no location found
- 
-        array("message" => "No location found.")
+    echo json_encode($arr);
   
 }
 
 } else {
     // set response code - 401 401 Unauthorized
-
-  
+    $arr = array('message' => '401 Unauthorized.');
+    header('HTTP/1.0 401 Unauthorized');
     // no user found
- 
-        array("message" => "401 Unauthorized.")
+    echo json_encode($arr);
    
 
 }
