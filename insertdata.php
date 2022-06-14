@@ -19,9 +19,9 @@ if ($conn->connect_error) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = 
+$user = "INSERT INTO users(id,name, email, token, created, branch_name) VALUES (1,'ahmadmuazzammustapha', 'ahmadajam@gmail.com', '40f1deba4f839e9db7393c1b753af721' , NOW(), 'ahmadmuazzammustapha') ";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = 
+$location = "INSERT INTO locations (id,user_id,district,state,country, branch_name) VALUES(1,1,'shah alam','selangor','malaysia', 'ahmadmuazzammustapha')";
 
 
 
