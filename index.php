@@ -12,8 +12,8 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 
 $servername = "localhost";
-$username = "developertest";
-$password = "HL@2021test";
+$username = "root";
+$password = "";
 $dbname = "hla";
 
 // Create connection
@@ -23,7 +23,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = array();
+$headers = array('message');
 $token = $_SESSION['token'];
 foreach ($headers as $header => $value) {
 
@@ -58,12 +58,12 @@ $data = $conn->query($sql);
             echo $location;
         }       
     }else {
-        echo "Error. No location found";
-    
+        array("message" => "401 Unauthorized.");
     }
 
 } else {
-    echo "error. No user found";
+
+        array("message" => "401 Unauthorized.");
    
 
 }
