@@ -66,7 +66,10 @@ else {
     http_response_code(404);
     // tell the user no location found
  
-        $message = array("message" => "No location found.");
+        $message = array(
+          "error" => 404,
+          "message" => "404 Not found - No location found.",
+        );
         echo json_encode($message);
   
 }
@@ -77,7 +80,10 @@ else {
   
     // no user found
  
-        $message = array("message" => "401 Unauthorized.");
+        $message = array(
+          "error" => 401,
+          "message" => "401 Unauthorized - No User Found."
+        );
         echo json_encode($message);
    
 
