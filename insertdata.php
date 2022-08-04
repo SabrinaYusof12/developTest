@@ -21,12 +21,13 @@ if ($conn->connect_error) {
 $branchName = "naim";
 
 // user
-$userId = 91;
+$userId = 738;
 $name = "Muhamad Naim Bin Hasim";
 $email = "imnaimhasim@gmail.com";
 $md5token = md5("mian");
 
 //locations
+$locationId = 359;
 $district = "Kota Bharu";
 $state = "Kelantan";
 $country = "Malaysia";
@@ -35,9 +36,9 @@ $country = "Malaysia";
 $user = "INSERT INTO users VALUES ( '$userId','$name', '$email','$md5token', now(), '$branchName' )";
 
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = "INSERT INTO locations VALUES ('$userId','$district','$state','$country','$branchName')";
+$location = "INSERT INTO locations VALUES ($locationId,'$userId','$district','$state','$country','$branchName')";
 
-$tokenQuery = "SELECT token from users where id = 91";
+$tokenQuery = "SELECT token from users where id = 738";
 
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   $location_id = $conn->insert_id;

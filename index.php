@@ -44,7 +44,7 @@ $data = $conn->query($sql);
 
 $location = [];
 
-  while($row = $data->fetch_assoc($data)) {
+  while($row = $data->fetch_assoc()) {
      $location = array(
         "district" => $row["district"],
         "state" => $row["state"],
