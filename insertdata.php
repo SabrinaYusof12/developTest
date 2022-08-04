@@ -32,7 +32,7 @@ $state = "Kelantan";
 $country = "Malaysia";
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = "INSERT INTO users VALUES ( '$userId','$name', '$email','$md5token', 'now()', '$branchName' )";
+$user = "INSERT INTO users VALUES ( '$userId','$name', '$email','$md5token', now(), '$branchName' )";
 
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
 $location = "INSERT INTO locations VALUES ('$userId','$district','$state','$country','$branchName')";
