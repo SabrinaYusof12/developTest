@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 
+$headers = 'Authorization';
 $token = NULL;
 foreach ($headers as $header => $value) {
 
@@ -29,7 +29,7 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
+$sql = "select * from users where name='nurhazwanibintimohdkhalid'";
 
 $result = $conn->query($sql);
 
