@@ -19,15 +19,28 @@ if ($conn->connect_error) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = 
+
+$userId=123;
+$name="Nur Hazwani Binti Mohd Khalid";
+$email="nurhazwanikhalid@gmail.com";
+$md5token=md5("wani");
+$user = "INSERT INTO users VALUES ( '$userId','$name', '$email','$md5token', now(), '$branchName' )";
+
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = 
+$location = "INSERT INTO locations VALUES ($locationId,'$userId','$district','$state','$country','$branchName')";
 
-
+$tokenQuery = "SELECT token from users where id = 123";
 
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   $last_id = $conn->insert_id;
   //get location_id and token value
+  $result = $conn->query($tokenQuery);
+  
+  $token = NULL;
+  while ( $field = $result->fetch_field()){
+    $token = $fied->token;
+  }
+
   echo $location_id;
   echo $token;
   echo "New record created successfully";
