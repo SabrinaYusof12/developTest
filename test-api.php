@@ -5,7 +5,7 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'test.hla-integrated.com/<branch-name>?location_id=<location-id>',
+  CURLOPT_URL => 'test.hla-integrated.com/wani?location_id=456',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -14,7 +14,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
-    'Authorization: <jwt-token>'
+    'Authorization: 40f1deba4f839e9db7393c1b753af721'
   ),
 ));
 
