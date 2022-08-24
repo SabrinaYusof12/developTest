@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 
+$headers = '' ; /*missing value and Semicolan */
 $token = NULL;
 foreach ($headers as $header => $value) {
 
@@ -29,7 +29,7 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
+$sql =  '' ; /*missing value and Semicolan */
 
 $result = $conn->query($sql);
 
@@ -42,10 +42,13 @@ $sql =
 
 $data = $conn->query($sql);
 
+$variable=[];
   while($row = $data->fetch_assoc()) {
-     = $row["district"];
-     = $row["state"];
-     = $row["country"];
+
+   /*missing assing variable */
+   $variable["district"] = $row["district"];
+   $variable["state"] = $row["state"];
+   $variable["country"] = $row["country"];
   }
 
 
@@ -61,7 +64,7 @@ else {
   
     // tell the user no location found
  
-        array("message" => "No location found.")
+        array("message" => "No location found.") ; /* Missing Semicolon*/ 
   
 }
 
@@ -71,7 +74,7 @@ else {
   
     // no user found
  
-        array("message" => "401 Unauthorized.")
+        array("message" => "401 Unauthorized."); /* Missing Semicolon*/
    
 
 }
