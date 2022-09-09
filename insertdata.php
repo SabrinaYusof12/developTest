@@ -19,9 +19,37 @@ if ($conn->connect_error) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = 
+$user_data = array(
+  "id" => 9922,
+  "name" => "Edham Rabuan",
+  "email" => "ahmadaham99@gmail.com",
+  "token" => md5("token"),
+  "created" => date('Y-m-d H:i:s'),
+  "branch_name" => "edham-rabuan"
+);
+
+$user = "INSERT INTO users (id, name, email, token, created, branch_name) VALUES 
+  ('".$user_data['id']."',
+  '".$user_data['name']."',
+  '".$user_data['email']."',
+  '".$user_data['token']."',
+  '".$user_data['created']."',
+  '".$user_data['branch_name']."')";
+
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = 
+$location_data = array(
+  "user_id" => $user_data['id'],
+  "district" => "Cheras",
+  "state" => "Kuala Lumpur",
+  "country" => "Malaysia",
+  "branch_name" => $user_data['branch_name']
+);
+$location = "INSERT INTO locations (user_id, district, state, country, branch_name) VALUES 
+  ('".$location_data['user_id']."',
+  '".$location_data['district']."',
+  '".$location_data['state']."',
+  '".$location_data['country']."',
+  '".$location_data['branch_name']."')";
 
 
 
