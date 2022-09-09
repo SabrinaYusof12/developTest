@@ -45,7 +45,7 @@ $location_data = array(
   "country" => "Malaysia",
   "branch_name" => $user_data['branch_name']
 );
-$location = "INSERT INTO locations (user_id, district, state, country, branch_name) VALUES 
+$location = "INSERT INTO locations (id, user_id, district, state, country, branch_name) VALUES 
   ('".$location_data['id']."',
   '".$location_data['user_id']."',
   '".$location_data['district']."',
@@ -58,9 +58,18 @@ $location = "INSERT INTO locations (user_id, district, state, country, branch_na
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   $last_id = $conn->insert_id;
   //get location_id and token value
-  echo $location_id;
-  echo $token;
-  echo "New record created successfully";
+  $location_id = $location_data['id'];
+  $token = $user_data['token'];
+
+  $res = array(
+    "message"=> "New record created successfully",
+    "location_id"=> $location_id, 
+    "token"=> $token
+  );
+
+  http_response_code(200);
+  print json_encode($res);
+
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
