@@ -38,6 +38,7 @@ $user = "INSERT INTO users (id, name, email, token, created, branch_name) VALUES
 
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
 $location_data = array(
+  "id" => 2299,
   "user_id" => $user_data['id'],
   "district" => "Cheras",
   "state" => "Kuala Lumpur",
@@ -45,7 +46,8 @@ $location_data = array(
   "branch_name" => $user_data['branch_name']
 );
 $location = "INSERT INTO locations (user_id, district, state, country, branch_name) VALUES 
-  ('".$location_data['user_id']."',
+  ('".$location_data['id']."',
+  '".$location_data['user_id']."',
   '".$location_data['district']."',
   '".$location_data['state']."',
   '".$location_data['country']."',
