@@ -17,21 +17,21 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$sql = "CREATE table users (
-  id (int), 
-  name (varchar 255), 
-  email (varchar 255), 
-  token (MD5 varchar 255), 
-  created (datetime), 
-  branch_name (varchar 255))";
-$sql = "INSERT INTO users (id, name, email) VALUES
-  ('1', 'Hafizah', 'hfzhkmlddn@gmail.com')";
-
-$user = md5 ($_POST['users']);
+//table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
+$branch_name="Test";
+$ID=220998;
+$name="Nurhafizah";
+$email="hfzhkmlddn@gmail.com";
+$token=MD5("ce8cc93995a599b557468f656c80c5c1");
+$user = "INSERT INTO users ('$ID', '$name', '$email', '$token', NOW(), '$branch_name'" VALUES;
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
 
-//$location = "INSERT INTO location (usersID, district, state, country) VALUES"
-//$location = "INSERT INTO location (ID, usersID, district, state, country) VALUES"
+$user_ID="Hafizah";
+$district="Dengkil";
+$state="Selangor";
+$country="Malaysia";
+
+$location = "INSERT INTO location (ID, user_ID, district, state, country, branch_name) VALUES"
 
 
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
@@ -41,7 +41,7 @@ if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   echo $token;
   echo "New record created successfully";
   
-  $token = $usersdata ['token'];
+  $token = $branch_name ['token'];
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
