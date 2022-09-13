@@ -1,4 +1,4 @@
-<?php
+<<?php
 
 ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 
@@ -17,13 +17,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-CREATE table users (
+$sql = "CREATE table users (
   id (int), 
   name (varchar 255), 
   email (varchar 255), 
   token (MD5 varchar 255), 
   created (datetime), 
-  branch_name (varchar 255))
+  branch_name (varchar 255))";
 $sql = "INSERT INTO user (id, name, email) VALUES
   ('1', 'Hafizah', 'hfzhkmlddn@gmail.com')";
 
@@ -41,7 +41,7 @@ if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   echo $token;
   echo "New record created successfully";
   
-  %$token = $usersdata ['token'];
+  $token = $usersdata ['token'];
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
