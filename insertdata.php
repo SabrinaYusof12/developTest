@@ -17,12 +17,21 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+CREATE table users (
+  id (int), 
+  name (varchar 255), 
+  email (varchar 255), 
+  token (MD5 varchar 255), 
+  created (datetime), 
+  branch_name (varchar 255))
+$sql = "INSERT INTO user (id, name, email) VALUES
+  ('1', 'Hafizah', 'hfzhkmlddn@gmail.com')";
 
-//table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = 
+$user = $_POST['username'];
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = 
 
+//$location = "INSERT INTO location (usersID, district, state, country) VALUES"
+//$location = "INSERT INTO location (ID, usersID, district, state, country) VALUES"
 
 
 if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
@@ -31,6 +40,8 @@ if ($conn->query($user) === TRUE && $conn->query($location) === TRUE ) {
   echo $location_id;
   echo $token;
   echo "New record created successfully";
+  
+  %$token = $usersdata ['token'];
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
