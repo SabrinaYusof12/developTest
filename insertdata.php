@@ -4,7 +4,7 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
 
 // include database 
 
-$servername = "localhost";
+$servername = "test.hla-integrated.com/HLAItest-hafizah";
 $username = "developertest";
 $password = "HL@2021test";
 $dbname = "hla";
