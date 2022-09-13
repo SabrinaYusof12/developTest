@@ -14,6 +14,7 @@ $username = "developertest";
 $password = "HL@2021test";
 $dbname = "hla";
 
+
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -34,18 +35,16 @@ foreach ($headers as $header => $value) {
 $error = "";
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql =  "SELECT * FROM users WHERE token = " . $token;
+$sql =  "SELECT * FROM users WHERE token = '" . $token . "'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while ($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"] .
-      "Name: " . $row["name"] .
-      "email: " . $row["email"] .
-      "token: " . $row["token"] .
-      "created: " . $row["created"] .
-      "branch_name: " . $row["branch_name"] .
-      "<br>";
+    echo json_encode([
+      "id" => $row["id"],
+      "Name" => $row["name"],
+      "email" => $row["email"],
+    ]) . "\n";
   }
 
   $location_id = $_GET['location_id'];
@@ -56,7 +55,7 @@ if ($result->num_rows > 0) {
   $location = array();
 
   while ($row = $data->fetch_assoc()) {
-    $location = array_push([
+    $location = array([
       "district" => $row["district"],
       "state" => $row["state"],
       "country" => $row["country"]

@@ -11,6 +11,7 @@ $username = "developertest";
 $password = "HL@2021test";
 $dbname = "hla";
 
+
 //
 
 // Create connection
