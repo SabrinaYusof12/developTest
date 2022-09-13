@@ -24,10 +24,10 @@ $sql = "CREATE table users (
   token (MD5 varchar 255), 
   created (datetime), 
   branch_name (varchar 255))";
-$sql = "INSERT INTO user (id, name, email) VALUES
+$sql = "INSERT INTO users (id, name, email) VALUES
   ('1', 'Hafizah', 'hfzhkmlddn@gmail.com')";
 
-$user = $_POST['username'];
+$user = md5 ($_POST['users']);
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
 
 //$location = "INSERT INTO location (usersID, district, state, country) VALUES"
