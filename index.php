@@ -51,14 +51,14 @@ $data = $conn->query($sql);
 
 if($data->num_rows > 0){ 
     // set response code - 200 OK
-  http_response_code(200);
+  var_dump(http_response_code(200));
     // show products data
          ($location);
       }
   
 else {
     // set response code - 404 Not found
-  http_response_code(404);
+  var_dump(http_response_code(404));
     // tell the user no location found
  
         array("message" => "No location found.")
@@ -67,7 +67,7 @@ else {
 
 } else {
     // set response code - 401 401 Unauthorized
-http_response_code(401);
+var_dump(http_response_code(401));
   
     // no user found
  
