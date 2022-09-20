@@ -19,9 +19,9 @@ if ($conn->connect_error) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = 
+$user = priya;
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = 
+$location = perak;
 
 
 
