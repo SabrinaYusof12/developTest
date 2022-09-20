@@ -29,14 +29,19 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
+$sql = "SELECT id, name, email, token, created FROM users";
 
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
-
-$location_id = 
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Name: " . $row[";"]. " " . $row[";"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$location_id = 1;
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
 $sql = 
 
