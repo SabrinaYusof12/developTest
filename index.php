@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 
+$headers =  
 $token = NULL;
 foreach ($headers as $header => $value) {
 
