@@ -19,16 +19,9 @@ if ($conn->connect_error) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = "CREATE TABLE users (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  token MD5 VARCHAR(255),
-  reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-  branch_name VARCHAR(255)
-  )";
+$user = "INSERT INTO users (id, name, email, token, created, branch_name) VALUES (1, 'farishakimi', 'farishakimimarzuki@gmail.com', MD5('farishakimi'), '2022-9-20 10:54:30', 'farishakimi')";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = "INSERT INTO locations (id, user_id, district, state, country, branch_name) VALUES ('1', '1', 'temerloh', 'pahang', 'malaysia', 'farishakimi')";
+$location = "INSERT INTO locations (id, user_id, district, state, country, branch_name) VALUES (1, 1, 'temerloh', 'pahang', 'malaysia', 'farishakimi')";
 
 
 
