@@ -5,7 +5,7 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'test.hla-integrated.com/<branch-name>?location_id=<location-id>',
+  CURLOPT_URL => 'test.hla-integrated.com/Fikri?location_id=<location-id>',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -14,7 +14,8 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
   CURLOPT_HTTPHEADER => array(
-    'Authorization: <jwt-token>'
+    // 'Authorization: <jwt-token>'
+    'Authorization: vngraeionk23341jf320i3'
   ),
 ));
 
