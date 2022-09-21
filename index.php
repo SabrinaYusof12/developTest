@@ -51,7 +51,7 @@ $data = $conn->query($sql);
 
 if($data->num_rows > 0){ 
     // set response code - 200 OK
-  http_response_code(200);
+  //http_response_code(200);
     // show products data
          ($location);
       }
