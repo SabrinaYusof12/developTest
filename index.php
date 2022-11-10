@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 
+$headers = 'MD598syukribolang123456789';
 $token = 'MD598syukribolang123456789';
 foreach ($headers as $header => $value) {
 
