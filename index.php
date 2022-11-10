@@ -18,6 +18,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+echo "Connected successfully";
 
 $headers = 'MD598syukribolang123456789';
 $token = 'MD598syukribolang123456789';
