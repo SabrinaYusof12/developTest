@@ -29,17 +29,17 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
-
+$sql =  "INSERT INTO User (id(int)', name(varchar 255), email(varchar 255), token(MD5 varchar 255), created DATETIME(),branch_name(varchar 255)) 
+VALUES ('1', 'Syukri', 'Syukri@mail.com','MD5 98' ,'gitcheckout-bSyukri')";
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
 
-$location_id = 
+$location_id = "1";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = 
-
+$sql = "INSERT INTO Locations (id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255))
+VALUES ('1', 'SYUKRI9809','Bentong','Pahang','Malaysia','SIP')";
 $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
