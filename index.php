@@ -29,7 +29,7 @@ foreach ($headers as $header => $value) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql =  "INSERT INTO User (id(int)', name(varchar 255), email(varchar 255), token(MD5 varchar 255), created DATETIME(),branch_name(varchar 255)) 
+$sql =  "INSERT INTO Users (id(int)', name(varchar 255), email(varchar 255), token(MD5 varchar 255), created DATETIME(),branch_name(varchar 255)) 
 VALUES ('1', 'Syukri', 'Syukri@mail.com','MD5 98' ,'gitcheckout-bSyukri')";
 $result = $conn->query($sql);
 
