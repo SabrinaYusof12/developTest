@@ -27,7 +27,7 @@ if ($conn->query($sql) === TRUE) {
   echo "Error creating database: " . $conn->error;
 }
 
-$headers = 'MD598syukribolang123456789';
+$headers = 
 $token = 'MD598syukribolang123456789';
 foreach ($headers as $header => $value) {
 
