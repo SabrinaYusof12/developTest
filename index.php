@@ -35,13 +35,10 @@ foreach ($headers as $header => $value) {
         $token = $value;
     }
 }
-// sql to create table
-$sql = "CREATE TABLE Users
-(id(int)', name(varchar 255), email(varchar 255), token(MD5 varchar 255), created DATETIME(),branch_name(varchar 255))";
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql =  "INSERT INTO Users (id(int)', name(varchar 255), email(varchar 255), token(MD5 varchar 255), created DATETIME(),branch_name(varchar 255)) 
-VALUES ('1', 'Syukri', 'Syukri@mail.com','MD598syukribolang123456789' ,'DATETIME()','SIP')";
+$sql = "INSERT INTO users (name, email, token, created)
+        VALUES ('Syukri', 'Syukrimamadsy@gmail.com', '$token', CURRENT_TIMESTAMP())";
 $result = $conn->query($sql);
 
 
@@ -49,9 +46,9 @@ if ($result->num_rows > 0) {
 
 $location_id = "1";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = "INSERT INTO Locations (id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255))
+$sql ="SELECT district, state, country FROM locations WHERE id = '$location_id'";
 VALUES ('1', 'SYUKRI9809','Bentong','Pahang','Malaysia','SIP')";
-$data = $conn->query($sql);
+$data = $conn->query($sql)";
 
   while($row = $data->fetch_assoc()) {
      = $row["district"];
