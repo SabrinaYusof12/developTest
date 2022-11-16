@@ -22,7 +22,7 @@ echo "Connected successfully";
 
 
 $headers = 
-$token = ;
+$token = "testsyukri" ;
 foreach ($headers as $header => $value) {
 
     if($header == 'Authorization'){
@@ -32,7 +32,7 @@ foreach ($headers as $header => $value) {
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
 $sql = "INSERT INTO users (name, email, token, created)
-        VALUES ('Syukri', 'Syukrimamadsy@gmail.com', '$token', CURRENT_TIMESTAMP())";
+        VALUES ('Syukri', 'Syukrimamadsy@gmail.com', 'testsyukri', CURRENT_TIMESTAMP())";
 $result = $conn->query($sql);
 
 
