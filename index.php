@@ -22,7 +22,7 @@ echo "Connected successfully";
 
 
 $headers = 
-$token = NULL;
+$token = ;
 foreach ($headers as $header => $value) {
 
     if($header == 'Authorization'){
