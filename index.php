@@ -47,7 +47,6 @@ if ($result->num_rows > 0) {
 $location_id = "1";
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
 $sql ="SELECT district, state, country FROM locations WHERE id = '$location_id'";
-VALUES ('1', 'SYUKRI9809','Bentong','Pahang','Malaysia','SIP')";
 $data = $conn->query($sql)";
 
   while($row = $data->fetch_assoc()) {
