@@ -19,16 +19,10 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
-// Create database
-$sql = "CREATE DATABASE hla";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . $conn->error;
-}
+
 
 $headers = 
-$token = 'MD598syukribolang123456789';
+$token = NULL;
 foreach ($headers as $header => $value) {
 
     if($header == 'Authorization'){
