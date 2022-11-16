@@ -26,7 +26,7 @@ VALUES ('1', 'Syukri', 'Syukri@mail.com','MD5 98' ,'DATETIME()','SIP')";
 
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
 
-$location = "INSERT INTO Locations (id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255))
+$location = "INSERT INTO locations (id, user_id, district, state, country, branch_name)
 VALUES ('1', 'SYUKRI9809','Bentong','Pahang','Malaysia','SIP')";
 
 
