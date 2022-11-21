@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 
-$headers = 
+$headers = ''
 $token = NULL ;
 foreach ($headers as $header => $value) {
 
