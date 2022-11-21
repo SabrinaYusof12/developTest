@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
 
-$sql = "INSERT INTO Users (name, email, token, created DATETIME(),branch_name) 
+$user = "INSERT INTO Users (name, email, token, created DATETIME(),branch_name) 
 VALUES ('1', 'Syukri', 'Syukri@mail.com','testsyukri' ,'DATETIME()','gitcheckout-bSyukri')";
 
 
