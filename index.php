@@ -18,9 +18,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+echo "Connected successfully";
 
-$headers = $curl['CURLOPT_URL'];
-$token = $curl['CURLOPT_HTTPHEADER']['Authorization'];
+
+$headers = 
+$token = Null ;
 foreach ($headers as $header => $value) {
 
     if($header == 'Authorization'){
@@ -30,18 +32,15 @@ foreach ($headers as $header => $value) {
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
 $sql = "INSERT INTO users (name, email, token, created)
-        VALUES ('Ali', 'ali123@gmail.com', '$token', CURRENT_TIMESTAMP())
-";
-
+        VALUES ('Syukri', 'Syukrimamadsy@gmail.com', 'testsyukri', CURRENT_TIMESTAMP())";
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
 
-$location_id = $params['location_id'];
+$location_id =$params['location_id'];
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = "SELECT district, state, country FROM locations WHERE id = '$location_id'";
-
+$sql ="SELECT district, state, country FROM locations WHERE id = '$location_id'";
 $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
