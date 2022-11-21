@@ -38,7 +38,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 
-$location_id = "1";
+$location_id =$params['location_id'];
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
 $sql ="SELECT district, state, country FROM locations WHERE id = '$location_id'";
 $data = $conn->query($sql);
