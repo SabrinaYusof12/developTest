@@ -9,6 +9,7 @@ $username = "developertest";
 $password = "HL@2021test";
 $dbname = "hla";
 
+
 //
 
 // Create connection
@@ -19,9 +20,16 @@ if ($conn->connect_error) {
 }
 
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime), branch_name (varchar 255)
-$user = 
+$user="INSERT INTO users (name, email, token, created, branch_name) VALUES ('faiz hamidi', 'faiz@example.com', MD5('codingisfun'), NOW(), 'branch')";
+$conn->query($user);
+$user_id = $conn->insert_id;
+$location_id = $conn->insert_id;
+
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255), branch_name (varchar 255)
-$location = 
+$location= "INSERT INTO locations (user_id, district, state, country, branch_name) VALUES ($location_id, 'pekan', 'Pahang', 'Malaysia', 'branch')";
+$conn->query($location); 
+
+
 
 
 
