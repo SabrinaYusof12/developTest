@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$headers = 
+$headers = apache_request_headers();
 $token = NULL;
 foreach ($headers as $header => $value) {
 
@@ -28,24 +28,37 @@ foreach ($headers as $header => $value) {
     }
 }
 
+$id =$_POST['id']; 
+$name =$_POST['name']; 
+$email =$_POST['email']; 
+$token =md5($_POST['token']); 
+$created =$_POST['created']; 
+
+
 //table users - id (int), name (varchar 255), email (varchar 255), token (MD5 varchar 255), created (datetime)
-$sql = 
+$sql = "SET @user :=0;SELECT * FROM users WHERE id='$id', name='$name', email='$email', token='$token', created='$created'"; 
 
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
 
-$location_id = 
+$id =$_POST['id']; 
+$user_id =$_POST['user_id'];
+$district =$_POST['district']; 
+$state =$_POST['state'];
+$country =$_POST['country'];
+
+$location_id = $row['user'];
 //table locations - id, user_id (int), district (varchar 255), state (varchar 255),country (varchar 255)
-$sql = 
+$sql = "SELECT * FROM locations WHERE id='$id', user_id='$user_id', district='$district', state='$state', country='$country'"; 
 
 $data = $conn->query($sql);
 
   while($row = $data->fetch_assoc()) {
-     = $row["district"];
-     = $row["state"];
-     = $row["country"];
+     $district = $row["district"];
+     $state = $row["state"];
+     $country = $row["country"];
   }
 
 
@@ -61,7 +74,7 @@ else {
   
     // tell the user no location found
  
-        array("message" => "No location found.")
+        array("message" => "No location found.");
   
 }
 
@@ -71,7 +84,7 @@ else {
   
     // no user found
  
-        array("message" => "401 Unauthorized.")
+        array("message" => "401 Unauthorized.");
    
 
 }
